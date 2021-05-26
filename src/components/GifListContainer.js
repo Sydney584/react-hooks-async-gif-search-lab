@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import GifSearch from "./GifSearch";
 import GifList from "./GifList";
 
@@ -9,7 +9,7 @@ function GifListContainer() {
 
 useEffect(() => {
 
-    fetch("https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=ZWSMro8wlWQqRISmJ6AJZR0hcMHiWVOS&rating=g")
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=ZWSMro8wlWQqRISmJ6AJZR0hcMHiWVOS&rating=g&limit=3`)
       .then((response) => response.json())
       .then(({data}) => {
 
@@ -23,10 +23,8 @@ useEffect(() => {
        <GifList gifs={gifs} />
       <GifSearch onSubmitQuery={setQuery} />
 
-
-      
   </div>
-  )
+  );
   }
 
 
